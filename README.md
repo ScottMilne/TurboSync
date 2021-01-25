@@ -1,13 +1,11 @@
-[![forthebadge](https://forthebadge.com/images/badges/fuck-it-ship-it.svg)](https://forthebadge.com)
+[![forthebadge](https://forthebadge.com/images/badges/works-on-my-machine.svg)](https://forthebadge.com)
 
-[![forthebadge](https://forthebadge.com/images/badges/approved-by-veridian-dynamics.svg)](https://forthebadge.com)
-
-# API & Test Project for Rhubarb Lip Sync
+# TurboSync Lip Syncing App
 
 
 ## Usage:
 
-- To see demo animation
+- First download nodejs https://nodejs.org/en/download/
 
 ```bash
     $   npm install
