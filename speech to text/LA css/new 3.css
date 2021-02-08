@@ -1,0 +1,117 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Calibri;
+	font-size:12;
+    padding: 10px;
+    background: #f1f1f1;
+}
+
+body, html{
+		   height: 70%;
+		   margin:0;
+		   width: auto;
+		   }
+
+.maintitle {
+	font-family: Calibri;
+	font-size: 40;
+   
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: black;
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+} 
+
+.active {
+  background-color: red;
+  color: white;
+}
+
+#content{
+	
+}
+#leftcolumn{
+	float:left;
+	width:33.33%;
+	
+}
+
+#rightcolumn{
+	float:right;
+	width: 33.33%;
+}
+
+
+.card{
+   background-color:white;
+   padding: 30px;
+   margin-top: 20px;
+  
+}	
+.card2{
+   background-color:black;
+   padding: 15px;
+   margin-top: 20px;
+   color:white;
+   text-align: center;
+}	
+
+
+.topimg{ 
+      height:70%;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover; 
+
+}	
+
+.row: after {
+	content:"";
+	display:table;
+	clear: both;
+}
+
+@media screen and (max-width: 600px) {
+  #leftcolumn, #rightcolumn {
+    width: 100%;
+}
+
+#footer {
+    
+    margin-top: 20px;
+	
+}
+
+
+   
