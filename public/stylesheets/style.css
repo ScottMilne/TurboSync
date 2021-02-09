@@ -1,13 +1,51 @@
+/**
+COLOR SCHEME
+
+#0B0C10 Black
+#1F2833 Dark grey
+#C5C6C7 Light grey
+#66FCF1 Bright blue
+#45A29E Dark blue
+*/
+
+.img-block-one {
+    float: left;
+    width:  200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.img-index{
+    float: left;
+    width:  250px;
+    height: 225px;
+    object-fit: cover;
+
+}
+
+.img-article {
+    float: left;
+    width:  500px;
+    height: 500px;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: #2f4499;
 }
 
-a {
-  color: #00B7FF;
+.bg-black {
+    background-color: #0B0C10 ;
 }
 
-img {
-    max-height: 10rem;
-    max-width: 10rem
+.my-jumbotron{
+    background-color: #C5C6C7;
+    color: black;
+}
+
+.white-font{
+    color: white;
+}
+
+.bg-dark-blue{
+    background-color: #45A29E;
 }
