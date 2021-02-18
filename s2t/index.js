@@ -1,43 +1,3 @@
-URL = window.URL || window.webkitURL;
-
-window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
-const synth = window.speechSynthesis;
-const recognition = new SpeechRecognition();
-
-const icon = document.getElementById('recordButton');
-let paragraph = document.createElement('p');
-let container = document.querySelector('.text-box');
-container.appendChild(paragraph);
-const sound = document.querySelector('.sound');
-
-icon.addEventListener('click', () => {
-  sound.play();
-  dictate();
-});
-
-const dictate = () => {
-  recognition.start();
-  recognition.onresult = (event) => {
-    const speechToText = event.results[0][0].transcript;
-    
-    paragraph.textContent = speechToText;
-	writeFile('text.txt', speechToText, (error) => { 
-      
-    // In case of a error throw err exception. 
-    if (error) throw err; 
-}) 
-
-    
-  }
-}
-
-const speak = (action) => {
-  utterThis = new SpeechSynthesisUtterance(action());
-  synth.speak(utterThis);
-};
-
-
-
 /////////////recorder.js below /////////////////
 var gumStream; 						//stream from getUserMedia()
 var rec; 							//Recorder.js object
@@ -53,12 +13,11 @@ var stopButton = document.getElementById("stopButton");
 
 //add events to those 2 buttons
 recordButton.addEventListener("click", startRecording);
-stopButton.addEventListener("click", stopRecording);
+stopButton.addEventListener("click", stopRecording);  //this could be deleted as not used now
 //pauseButton.addEventListener("click", pauseRecording);
 
 function startRecording() {
 	console.log("recordButton clicked");
-
 	/*
 		Simple constraints object, for more advanced audio features see
 		https://addpipe.com/blog/audio-constraints-getusermedia/
@@ -119,25 +78,11 @@ function startRecording() {
 	});
 }
 
-// function pauseRecording(){
-// 	console.log("pauseButton clicked rec.recording=",rec.recording );
-// 	if (rec.recording){
-// 		//pause
-// 		rec.stop();
-// 		pauseButton.innerHTML="Resume";
-// 	}else{
-// 		//resume
-// 		rec.record()
-// 		pauseButton.innerHTML="Pause";
-
-// 	}
-// }
-
 function stopRecording() {
-	console.log("stopButton clicked");
+	console.log("Recording Stopped");
 
 	//disable the stop button, enable the record too allow for new recordings
-	stopButton.disabled = true;
+	stopButton.disabled = true; // This could be deleleted as not now used
 	recordButton.disabled = false;
 	//pauseButton.disabled = true;
 
@@ -204,3 +149,38 @@ function createDownloadLink(blob) {
 	//add the li element to the ol
 	recordingsList.appendChild(li);
 }
+
+
+//speech regonition 
+URL = window.URL || window.webkitURL;
+
+window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+const synth = window.speechSynthesis;
+const recognition = new SpeechRecognition();
+
+const icon = document.getElementById('recordButton');
+let paragraph = document.createElement('p');
+let container = document.querySelector('.text-box');
+container.appendChild(paragraph);
+const sound = document.querySelector('.sound');
+
+icon.addEventListener('click', () => {
+  //sound.play();
+  dictate();
+});
+
+const dictate = () => {
+  recognition.start();
+  recognition.onresult = (event) => {
+	stopRecording(); //stops the recording when the user stops speaking
+    const speechToText = event.results[0][0].transcript;
+    
+    paragraph.textContent = speechToText;
+
+  }
+}
+
+const speak = (action) => {
+  utterThis = new SpeechSynthesisUtterance(action());
+  synth.speak(utterThis);
+};
