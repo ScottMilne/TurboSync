@@ -11,7 +11,7 @@
 </head>
 <body>
   <div class="container"> <!--page container -->
-    <div class="text-box" contenteditable="true"></div> <!--text box which will contain spoken text -->
+    <div class="text-box" id="voice-input" contenteditable="true"></div> <!--text box which will contain spoken text -->
     <!-- <i class="fa fa-microphone"></i> microphone icon to be clicked before speaking -->
   </div>
 
@@ -26,6 +26,7 @@
 
   <audio class="sound" src="chime.mp3"></audio> <!-- sound to be played when we click icon => http://soundbible.com/1598-Electronic-Chime.html -->
  
+  <script src="FileSaver.js"></script>
   <script src="index.js"></script> <!-- link to index.js script -->
 
   <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>   <!-- script from recorder.js -->
