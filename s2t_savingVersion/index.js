@@ -69,7 +69,7 @@ function startRecording() {
 		//start the recording process
 		rec.record()
 
-		console.log("Recording startttted");
+		console.log("Recording started");
 
 	}).catch(function(err) {
 	  	//enable the record button if getUserMedia() fails
@@ -80,8 +80,8 @@ function startRecording() {
 }
 
 function stopRecording() {
-	console.log("Recording Stopppped");
-	console.log("updated 14");
+	console.log("Recording Stopped");
+	//console.log("updated 14");
 
 	//disable the stop button, enable the record too allow for new recordings
 	stopButton.disabled = true; // This could be deleleted as not now used
