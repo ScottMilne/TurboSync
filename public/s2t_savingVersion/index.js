@@ -99,110 +99,31 @@ function stopRecording() {
 
 	//create the wav blob and save it
 	rec.exportWAV(saveAudioFile);
-	//userInput = "some lovely text"; //set user input for savetextfile
 	
-
-	// userInput = paragraph.textContent;
-
-
-	// //console.log("userInput");
-	// var txtBlob = new Blob([userInput]);
-	// saveTxtFile(txtBlob);
 	}
 
-	//var userInput = document.getElementsByName("p").value;
-	//var userInput = container.textContent;
 
+//Save function audio file and sent to PHP
 function saveAudioFile(blob) {
 fetch(`load.php`,{method:"POST", body:blob})
 		.then(response => console.log(response.text))
 
 userInput = paragraph.textContent;
 
-
-	//console.log("userInput");
+	//I have placed this create txtBlob var inside this funxtion as the userInput is not available until this point
 	var txtBlob = new Blob([userInput]);
+	//Call save txt file
 	saveTxtFile(txtBlob);
 }
 
+//Save function audio file and sent to PHP
 function saveTxtFile(txtBlob){
 fetch(`upload.php`,{method:"POST", body:txtBlob})
 	.then(response => console.log(response.text))
 
 }  
 
-//save text in textbox to file
-// function saveDynamicTextToFile() {
-// 	var txtBlob = new Blob([userInput]),
 
-// 	//var userInput = document.getElementsByName("p").value;
-// 	//var userInput = container.textContent;
-
-	
-// 	var blob = new Blob([userInput], { type: "text/plain;charset=utf-8" });
-// 	saveAs(blob, "audio.txt");
-// }
-
-
-
-
-
-
-// function createDownloadLink(blob) {
-	
-// 	var url = URL.createObjectURL(blob);
-// 	var au = document.createElement('audio');
-// 	var li = document.createElement('li');
-// 	var link = document.createElement('a');
-
-// 	//name of .wav file to use during upload and download (without extendion)
-// 	var filename = new Date().toISOString();
-
-// 	//add controls to the <audio> element
-// 	au.controls = true;
-// 	au.src = url;
-
-// 	//save to disk link
-// 	link.href = url;
-// 	link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
-// 	link.innerHTML = "Save to disk"; 
-
-// 	//add the new audio element to li
-// 	li.appendChild(au);
-	
-// 	//add the filename to the li
-// 	li.appendChild(document.createTextNode(filename+".wav "))
-
-// 	//add the save to disk link to li
-// 	li.appendChild(link);
-	
-// 	//upload link
-// 	var upload = document.createElement('a');
-// 	upload.href="#";
-// 	upload.innerHTML = "Upload";
-// 	upload.addEventListener("click", function(event){
-// 		  var xhr=new XMLHttpRequest();
-// 		  xhr.onload=function(e) {
-// 		      if(this.readyState === 4) {
-// 		          console.log("Server returned: ",e.target.responseText);
-// 		      }
-// 		  };
-// 		  var fd=new FormData();
-// 		  fd.append("audio_data",blob, filename);
-// 		  xhr.open("POST","upload.php",true);
-// 		  xhr.send(fd);
-// 	})
-// 	li.appendChild(document.createTextNode (" "))//add a space in between
-// 	li.appendChild(upload)//add the upload link to li
-
-// 	//add the li element to the ol
-// 	recordingsList.appendChild(li);
-
-// 	//soundInput = 
-	//userInput = paragraph.textContent; //set user input for savetextfile
-// 	saveDynamicTextToFile(); //run saveAs function
-// 	//saveWavToFile(); // doesnt work yet
-// }
 
 function createDownloadLink(blob) {
     var url = URL.createObjectURL(blob);
@@ -272,7 +193,7 @@ const dictate = () => {
     const speechToText = event.results[0][0].transcript;
     
     paragraph.textContent = speechToText;
-    //userInput = paragraph.textContent; ///////////////////////////////////is this needed
+    
   }
 }
 
@@ -281,23 +202,6 @@ const speak = (action) => {
   synth.speak(utterThis);
 };
 
-//save text in textbox to file
-function saveDynamicTextToFile() {
-
-	//var userInput = document.getElementsByName("p").value;
-	//var userInput = container.textContent;
-	var blob = new Blob([userInput], { type: "text/plain;charset=utf-8" });
-	saveAs(blob, "audio.txt");
-}
 
 
 
-
-
-////Scott's function to take the audio -> Rhubarb
-// <?php 
-//     if (isset($_POST['convert']))
-//     {
-//          echo shell_exec("C:../rhubarb/rhubarb.exe -d ../inbox/audio.txt -f json -o ../outbox/audio.json ../inbox/audio.wav");
-//     }
-//  ?>
