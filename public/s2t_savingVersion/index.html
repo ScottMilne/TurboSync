@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Speech Recognition</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  <!-- load font awesome here for icon used on the page -->
+</head>
+<body>
+  <div class="container"> <!--page container -->
+    <div class="text-box" id="voice-input" contenteditable="true"></div> <!--text box which will contain spoken text -->
+    <!-- <i class="fa fa-microphone"></i> microphone icon to be clicked before speaking -->
+  </div>
+
+  <div id="controls">
+    <button id="recordButton">Record</button>
+    <!-- <button id="pauseButton" disabled>Pause</button> -->
+    <button id="stopButton" disabled>Stop</button>
+   </div>
+   <div id="formats">Format: start recording to see sample rate</div>
+   <p><strong>Recordings:</strong></p>
+   <ol id="recordingsList"></ol>
+
+  <audio class="sound" src="chime.mp3"></audio> <!-- sound to be played when we click icon => http://soundbible.com/1598-Electronic-Chime.html -->
+ 
+  <script src="FileSaver.js"></script>
+  <script src="index.js"></script> <!-- link to index.js script -->
+
+  <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>   <!-- script from recorder.js -->
+
+
+</body>
+</html>
+© 2021 TurboSync.inc
