@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Speech Recognition</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+  
+</head>
+<body>
+
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-sm bg-dark justify-content-center py-1">
+
+    <!--Page Title-->
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class= " navbar-nav mr-auto text-info">
+            <li class = "nav-item nav-text">
+                TurboSync Speech Simulator
+            </li>
+        <ul>
+    </div>
+
+    <!--Links-->
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar navbar-nav ml-auto">         
+          <!--Home-->
+          <li>
+              <a class="nav-link"  href="#" >
+                  Home
+              </a> 
+          </li>
+
+          <!--Basic Dynamic Website (Block 1)-->
+          <li class="nav-item">
+              <a class="nav-link"  href="#" id="login-link">
+                  Link
+              </a> 
+          </li>
+      </ul>
+    </div>
+
+  </nav>
+
+  <!--Text Box-->
+  <div class="container" id="mySpeechToText"> 
+    <div class="text-box" id="voice-input" contenteditable="true"></div> <!--text box which will contain spoken text -->
+    <!-- <i class="fa fa-microphone"></i> microphone icon to be clicked before speaking -->
+  </div>
+
+  <!--Lower Page (Buttons and recordings)-->
+  <div class= "container">
+
+     <!--Buttons-->
+    <div id="controls">
+      <button id="recordButton">Record</button>
+      <!-- <button id="pauseButton" disabled>Pause</button> -->
+      <button id="stopButton" disabled>Stop</button>
+    </div>
+
+    <div id="formats">Format: start recording to see sample rate</div>
+    <p><strong>Recordings:</strong></p>
+    <ol id="recordingsList"></ol>
+
+    <audio class="sound" src="chime.mp3"></audio> <!-- sound to be played when we click icon => http://soundbible.com/1598-Electronic-Chime.html -->
+  </div>
+ 
+  <!--Footer-->
+  <div class="bg-dark" id="myFooter">
+    <footer class=" container white-font justify-content-center">
+        <h3>
+        Wet Behind the Engineers
+        </h3>
+
+        <ul>
+            <li>Lee Aikenhead 2005251 </li>
+            <li>Akash D'Cross 1905942 </li>
+            <li>Salomon Ghitis 1802324 </li>
+            <li>Scott Milne 1905944 </li>
+            <li>James Ireland 1801700 </li>
+            <li>Greg Harrison 0100603 </li>
+        </ul>
+        © 2021 TurboSync.inc
+    </footer>
+  </div>
+
+  <!--Scripts-->
+  <script src="FileSaver.js"></script>
+  <script src="index.js"></script> <!-- link to index.js script -->
+  <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>   <!-- script from recorder.js -->
+</body>
+</html>
