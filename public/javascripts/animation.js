@@ -1,5 +1,57 @@
-$(document).ready(function () {
 
+
+$(document).ready(function () {
+	
+
+
+	const audio = document.getElementById('audio');
+	const image1 = document.getElementById('audioimage');
+//	window.alert(jsonAudioTimings);
+
+	function animateAudio() {
+		let time = audio.currentTime;
+		console.log(`Current audio time: ${audio.currentTime}`);
+		jsonAudioTimings.forEach((item) => {
+			if (item.start < time && time < item.end) image1.src = `/images/${item.value}.png`;
+		})
+		if (!audio.ended) window.requestAnimationFrame(animateAudio);
+	}
+
+	function playAudio() {
+		audio.play();
+		animateAudio();
+	}
+	
+	
+	
+	
+	document.getElementById('audioBtn').onclick = playAudio;
+	
+	
+
+	/*
+		//////////////////////////What a Tweest////////////////////////////////////////////
+
+	
+	const whatATweest = document.getElementById('whatATwistAudio');
+	const image1 = document.getElementById('whattwist');
+
+
+	function animateWhatATwist() {
+		let time = whatATweest.currentTime;
+		console.log(`Current audio time: ${whatATweest.currentTime}`);
+		whatATwistTiming.forEach((item) => {
+			if (item.start < time && time < item.end) image1.src = `/images/${item.value}.png`;
+		})
+		if (!whatATweest.ended) window.requestAnimationFrame(animateWhatATwist);
+	}
+
+	function playWhatATwist() {
+		whatATweest.play();
+		animateWhatATwist();
+	}
+
+	document.getElementById('whatATwistBtn').onclick = playWhatATwist;
 	
 	////////////////////////// FIRST OF ALL ////////////////////////////////////////////////////////
 
@@ -109,6 +161,6 @@ $(document).ready(function () {
 
 	document.getElementById('helloBtn').onclick = playHello;	
 	
-	
+	*/
 	
 })
