@@ -100,9 +100,6 @@ function stopRecording() {
 	//create the wav blob and save it
 	rec.exportWAV(saveAudioFile);
 	
-	console.log("calling funct");
-	callRhubarb() //posts to rhubarb automation function
-	
 	}
 
 
@@ -125,19 +122,6 @@ fetch(`upload.php`,{method:"POST", body:txtBlob})
 	.then(response => console.log(response.text))
 
 }  
-
-function callRhubarb(){
-	
-	$.ajax({
-		 type: "POST",
-		 url: "../../lib/convertAudioToJson.php",
-		 data: "&convert="+true,
-		 success:function(html)
-		 {
-				//console.log("Rhubarb successfully called");
-		 }
-	 });
-}
 
 
 
