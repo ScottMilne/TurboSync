@@ -7,11 +7,9 @@
   <title>Speech Recognition</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="style.css">
- 
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
   <!-- load font awesome here for icon used on the page -->
-  
-   <script type='text/javascript' src="timeings.js"></script>
+     <script type='text/javascript' src="timeings.js"></script>
    <script type='text/javascript' src="animations.js"></script>
 </head>
 <body>
@@ -33,40 +31,19 @@
  
   <script src="FileSaver.js"></script>
   <script src="index.js"></script> <!-- link to index.js script -->
-
 	<br>
 	<br>
 	<br>
-	<audio id="audio" src='../hello.mp3'></audio>
-	<img id='audioimage' src='../images/lips/X.png' >
+	<audio id="audio" src='audio.wav'></audio>
+	<img id='audioimage' src='../images/X.png' >
 	<button id="audioBtn">Play</button>
 	<button id="updateTimings">Update</button>
- 
-
   <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>   <!-- script from recorder.js -->
-  
-  
-  
+
+
 </body>
 </html>
 © 2021 TurboSync.inc
-
-
-
-<!--
-<script type ="text/javascript">
-const xhr = new XMLHttpRequest();
-
-xhr.onload =function(){
-console.log(this);
-}
-
-xhr.open('get','audio.json');
-xhr.send();
-
-</script>
- -->
-
 
 
  <script>
@@ -87,16 +64,16 @@ function fetchJSONFile(path, callback) {
 	httpRequest.setRequestHeader("Cache-Control", "no-cache");
 	httpRequest.setRequestHeader("Pragma", "no-cache");
 	httpRequest.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 2000 00:00:00 GMT");
+	
     httpRequest.send(); 
 } 
 
       $("#updateTimings").click(function(){	  
-		fetchJSONFile('audio.json', function(data){	
-		stringifyJson(data);
+		fetchJSONFile('audio.txt', function(data){	
+		//stringifyJson(data);
 		});
           
            });
 		
 
  </script>
- 
