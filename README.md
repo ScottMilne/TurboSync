@@ -34,48 +34,33 @@ To get a local copy up and running follow these steps.
 
 ### Prerequisites
 
-To run the project you will need to first have <a href = "https://nodejs.org/en/download/"> NodeJs <a> installed.
+To run the project you will need to first have a local php server e.g. <a href = "https://www.apachefriends.org/download.html"> XAMPP <a>
+ 
 
 
 ### Installation
 
-1. Clone the repo
+Clone the repo
    ```sh
    git clone https://github.com/1905944/TurboSync.git
-   ```
-2. Install NPM packages
-   ```sh
-   npm install
    ```
 
 <!-- USAGE -->
 
 ## Usage
 
-### Running demo
+### Running app
 
-To get the demo working you need to open command line at the file directory and follow the instructions below:
-
-1. Start package manager
-
-	```sh
-    npm start   
-	```
-2. Open web browser and navigate to localhost:3000
+To get the app working you need to run the repo from your php server, then view it in your browser.
  
 
-### Adding new lip movements to demo
+### How to use
 
-This is a temporary method and will need to be updated but for the meantime it works 🤷‍♂️
+To use the app you first have to ensure two things:
+1. The app is currently only compatable with google chrome so youll need that installed. 
+2. You must have your mic connected for the app to work.
 
-1. insert .wav audio file and transcript in the inbox file
-2. Open command line at the rhubarb file and run command
-	```sh
-	rhubarb.exe -d ../inbox/filename.txt -f json -o ../outbox/filename.json ../inbox/filename.wav
-	```
-3. Add new img, audio and button objects to `views/index.pug`
-4. Take json data from outbox file and insert into `public/javascripts/timings.js`
-5. Add needed functions and variables to `public/javascripts/animation.js`
+To begin recording just press the record button and allow the app to use your mic. When done, stop the recording and the lips will animate.
 
 
 <!-- CONTRIBUTORS -->

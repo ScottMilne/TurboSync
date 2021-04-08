@@ -10,7 +10,7 @@
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
   <!-- load font awesome here for icon used on the page -->
      <script type='text/javascript' src="timeings.js"></script>
-   <script type='text/javascript' src="animations.js"></script>
+   <script type='text/javascript' src="animationss.js"></script>
 </head>
 <body>
   <div class="container"> <!--page container -->
@@ -34,8 +34,8 @@
 	<br>
 	<br>
 	<br>
-	<audio id="audio" src='audio.wav'></audio>
-	<img id='audioimage' src='../images/X.png' >
+	
+	<img id='audioimage' src='../images/lips/X.png' >
 	<button id="audioBtn">Play</button>
 	<button id="updateTimings">Update</button>
   <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>   <!-- script from recorder.js -->
@@ -59,7 +59,6 @@ function fetchJSONFile(path, callback) {
         }
     };
     httpRequest.open('GET', path,true);
-	
 	//clearing cache
 	httpRequest.setRequestHeader("Cache-Control", "no-cache");
 	httpRequest.setRequestHeader("Pragma", "no-cache");
@@ -68,9 +67,14 @@ function fetchJSONFile(path, callback) {
     httpRequest.send(); 
 } 
 
-      $("#updateTimings").click(function(){	  
-		fetchJSONFile('audio.txt', function(data){	
-		//stringifyJson(data);
+
+
+      $("#updateTimings").click(function(){
+	  
+		fetchJSONFile('../../outbox/audio.js', function(data){
+		console.log()
+		
+		//stringifyJson(data);		
 		});
           
            });
