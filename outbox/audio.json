@@ -1,0 +1,9 @@
+{
+  "metadata": {
+    "soundFile": "C:\\xampp\\htdocs\\TurboSync\\lib\\../inbox/audio.wav",
+    "duration": 1.79
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 1.79, "value": "X" }
+  ]
+}
