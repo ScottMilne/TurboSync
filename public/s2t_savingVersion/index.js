@@ -100,7 +100,65 @@ function stopRecording() {
 	//create the wav blob and save it
 	rec.exportWAV(saveAudioFile);
 	
+	console.log("calling funct");
+	callRhubarb() //posts to rhubarb automation function
+	
+
+	
 	}
+	
+	function callRhubarb(){
+
+	$.ajax({
+		 type: "POST",
+		 url: "../../lib/convertAudioToJson.php",
+		 data: "&convert="+true,
+		 success:function(html)
+		 {
+				
+				fetchJSONFile('../../outbox/audio.json', function(data){	
+					stringifyJson(data);
+				});
+		 }
+	 });
+	 
+	 
+}
+
+
+
+function fetchJSONFile(path, callback) {
+    var httpRequest = new XMLHttpRequest();
+    httpRequest.onreadystatechange = function() {
+        if (httpRequest.readyState === 4) {
+            if (httpRequest.status === 200) {
+                var data = JSON.stringify(httpRequest.responseText);
+			
+                if (callback) callback(data);
+            }
+        }
+    };
+    httpRequest.open('GET', path,true);
+	
+	//clearing cache
+	httpRequest.setRequestHeader("Cache-Control", "no-cache");
+	httpRequest.setRequestHeader("Pragma", "no-cache");
+	httpRequest.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 2000 00:00:00 GMT");
+	
+    httpRequest.send(); 
+	
+
+} 
+
+
+
+
+
+
+
+
+
+
 
 
 //Save function audio file and sent to PHP
