@@ -1,13 +1,12 @@
 body {
   background: #1e2440;
-  background-image: radial-gradient(#141e30  , #243b55);
+  background-image: radial-gradient(#141e30, #243b55);
   background-repeat: no-repeat;
   background-attachment: fixed;
   color: #f2efe2;
   font-size: 16px;
   font-family: 'Times New Roman', Times, serif;
   font-family: 'Arial', Helvetica, sans-serif, Helvetica, sans-serif;
-
 }
 
 .container {
@@ -21,6 +20,7 @@ body {
   overflow: scroll;
   margin-top: 2%;
 }
+
 .text-box {
   min-height: 30vh;
   max-height: 150vh;
@@ -28,43 +28,44 @@ body {
   text-align: center;
 }
 
-  overflow: scroll;
+overflow: scroll;
 }
+
 .text-box:focus {
   outline: none;
 }
+
 .text-box p {
   border-bottom: 1px dotted black;
   margin: 0px !important;
 }
 
-.animateBg {
-
-}
+.animateBg {}
 
 @keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
-
-hr{
+hr {
   display: block;
-    content: "";
-    height: 30px;
-    margin-top: -51px;
-    border-style: solid;
-    border-color: #dddddd70;
-    border-width: 0 0 1px 0;
-    border-radius: 20px;
-    width: 30em;
+  content: "";
+  height: 30px;
+  margin-top: -51px;
+  border-style: solid;
+  border-color: #dddddd70;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+  width: 30em;
 }
 
 .fa {
@@ -80,35 +81,40 @@ hr{
   align-items: center;
   justify-content: center;
 }
+
 @media (max-width: 768px) {
   .container {
     width: 85vw;
     max-width: 85vw;
   }
-.text-box {
+
+  .text-box {
     max-height: 55vh;
   }
 }
 
-#title{
+#title {
   text-align: center;
   font-size: 3em
 }
 
-#audioimage{
+#audioimage {
   display: block;
   margin: auto;
   margin-top: 5%
 }
-#audioBtn{
-  
+
+#audioBtn {
+  visibility: hidden;
   margin: auto;
   margin-top: 10px;
 }
-#updateTimings{
-  margin:auto;
+
+#updateTimings {
+  margin: auto;
   margin-top: 10px;
 }
+
 #controls {
   display: flex;
   margin: auto;
@@ -129,7 +135,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  color:#ffffff;
+  color: #ffffff;
   font-weight: bold;
   font-size: 1.5rem;
 }
@@ -152,6 +158,7 @@ button:disabled {
   pointer-events: none;
   background: lightgray;
 }
+
 button:first-child {
   margin-left: 0;
 }

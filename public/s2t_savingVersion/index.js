@@ -4,7 +4,7 @@ var rec; 							//Recorder.js object
 var input; 							//MediaStreamAudioSourceNode we'll be recording
 var userInput;
 var soundInput;
-// shim for AudioContext when it's not avb. 
+// shim for AudioContext when it's not avb.
 var AudioContext = window.AudioContext || window.webkitAudioContext;
 var audioContext; //audio context to help us record
 
@@ -23,11 +23,11 @@ function startRecording() {
 		Simple constraints object, for more advanced audio features see
 		https://addpipe.com/blog/audio-constraints-getusermedia/
 	*/
-    
+
     var constraints = { audio: true, video:false }
 
  	/*
-    	Disable the record button until we get a success or fail from getUserMedia() 
+    	Disable the record button until we get a success or fail from getUserMedia()
 	*/
 
 	recordButton.disabled = true;
@@ -35,7 +35,7 @@ function startRecording() {
 	//pauseButton.disabled = false
 
 	/*
-    	We're using the standard promise based getUserMedia() 
+    	We're using the standard promise based getUserMedia()
     	https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia
 	*/
 
@@ -50,17 +50,17 @@ function startRecording() {
 
 		audioContext = new AudioContext();
 
-    
-		//update the format 
+
+		//update the format
 		//document.getElementById("formats").innerHTML="Format: 1 channel pcm @ "+audioContext.sampleRate/1000+"kHz"
 
 		/*  assign to gumStream for later use  */
 		gumStream = stream;
-		
+
 		/* use the stream */
 		input = audioContext.createMediaStreamSource(stream);
 
-		/* 
+		/*
 			Create the Recorder object and configure to record mono sound (1 channel)
 			Recording 2 channels  will double the file size
 		*/
@@ -90,7 +90,7 @@ function stopRecording() {
 
 	//reset button just in case the recording is stopped while paused
 	//pauseButton.innerHTML="Pause";
-	
+
 	//tell the recorder to stop the recording
 	rec.stop();
 
@@ -99,14 +99,14 @@ function stopRecording() {
 
 	//create the wav blob and save it
 	rec.exportWAV(saveAudioFile);
-	
+
 	console.log("calling funct");
 	callRhubarb() //posts to rhubarb automation function
-	
 
-	
+
+
 	}
-	
+
 	function callRhubarb(){
 
 	$.ajax({
@@ -115,14 +115,18 @@ function stopRecording() {
 		 data: "&convert="+true,
 		 success:function(html)
 		 {
-				
-				fetchJSONFile('../../outbox/audio.json', function(data){	
+			 //getting json data
+				fetchJSONFile('../../outbox/audio.json', function(data){
 					stringifyJson(data);
 				});
+
+				//unhiding button
+				var playButton = document.getElementById("audioBtn");
+				playButton.style.visibility= "visible";
 		 }
 	 });
-	 
-	 
+
+
 }
 
 
@@ -133,22 +137,22 @@ function fetchJSONFile(path, callback) {
         if (httpRequest.readyState === 4) {
             if (httpRequest.status === 200) {
                 var data = JSON.stringify(httpRequest.responseText);
-			
+
                 if (callback) callback(data);
             }
         }
     };
     httpRequest.open('GET', path,true);
-	
+
 	//clearing cache
 	httpRequest.setRequestHeader("Cache-Control", "no-cache");
 	httpRequest.setRequestHeader("Pragma", "no-cache");
 	httpRequest.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 2000 00:00:00 GMT");
-	
-    httpRequest.send(); 
-	
 
-} 
+    httpRequest.send();
+
+
+}
 
 
 
@@ -179,7 +183,7 @@ function saveTxtFile(txtBlob){
 fetch(`upload.php`,{method:"POST", body:txtBlob})
 	.then(response => console.log(response.text))
 
-}  
+}
 
 
 
@@ -188,22 +192,22 @@ function createDownloadLink(blob) {
     var au = document.createElement('audio');
     var li = document.createElement('li');
     var link = document.createElement('a');
-    //add controls to the <audio> element 
+    //add controls to the <audio> element
     au.controls = true;
     au.src = url;
-    //link the a element to the blob 
+    //link the a element to the blob
     link.href = url;
     link.download = new Date().toISOString() + '.wav';
     link.innerHTML = link.download;
-    //add the new audio and a elements to the li element 
+    //add the new audio and a elements to the li element
     li.appendChild(au);
     li.appendChild(link);
-    //add the li element to the ordered list 
+    //add the li element to the ordered list
 
 	//var filename = new Date().toISOString();
-	var filename = "audio.wav"; 
-	//filename to send to server without extension 
-	//upload link 
+	var filename = "audio.wav";
+	//filename to send to server without extension
+	//upload link
 	var upload = document.createElement('a');
 	upload.href = "#";
 	upload.innerHTML = "Upload";
@@ -219,14 +223,14 @@ function createDownloadLink(blob) {
 	    xhr.open("POST", "load.php", true);   //load.php - trying different options
 	    xhr.send(fd);
 	})
-	li.appendChild(document.createTextNode(" ")) //add a space in between 
+	li.appendChild(document.createTextNode(" ")) //add a space in between
 	li.appendChild(upload) //add the upload link to li
 
     recordingsList.appendChild(li);
 }
 
 
-//speech regonition 
+//speech regonition
 URL = window.URL || window.webkitURL;
 
 window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
@@ -249,9 +253,9 @@ const dictate = () => {
   recognition.onresult = (event) => {
 	stopRecording(); //stops the recording when the user stops speaking
     const speechToText = event.results[0][0].transcript;
-    
+
     paragraph.textContent = speechToText;
-    
+
   }
 }
 
@@ -259,7 +263,3 @@ const speak = (action) => {
   utterThis = new SpeechSynthesisUtterance(action());
   synth.speak(utterThis);
 };
-
-
-
-
