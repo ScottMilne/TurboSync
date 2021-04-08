@@ -10,11 +10,22 @@
   <link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
   <!-- load font awesome here for icon used on the page -->
      <script type='text/javascript' src="timeings.js"></script>
-   <script type='text/javascript' src="animations.js"></script>
+   <script type='text/javascript' src="animationss.js"></script>
 </head>
 <body>
+  <h1 id="title">TurboSync</h1>
+
+  <hr>
+
+  <img id='audioimage' src='../images/X.png' >
+	<button id="audioBtn">Play</button>
+
+  <!--
+  <button id="updateTimings">Update</button>
+-->
+
   <div class="container"> <!--page container -->
-    <div class="text-box" id="voice-input" contenteditable="true"></div> <!--text box which will contain spoken text -->
+    <div class="text-box" id="voice-input" contenteditable="false"></div> <!--text box which will contain spoken text -->
     <!-- <i class="fa fa-microphone"></i> microphone icon to be clicked before speaking -->
   </div>
 
@@ -23,21 +34,16 @@
     <!-- <button id="pauseButton" disabled>Pause</button> -->
     <button id="stopButton" disabled>Stop</button>
    </div>
-   <div id="formats">Format: start recording to see sample rate</div>
-   <p><strong>Recordings:</strong></p>
-   <ol id="recordingsList"></ol>
 
-  <audio class="sound" src="chime.mp3"></audio> <!-- sound to be played when we click icon => http://soundbible.com/1598-Electronic-Chime.html -->
- 
-  <script src="FileSaver.js"></script>
+
+
+
   <script src="index.js"></script> <!-- link to index.js script -->
 	<br>
 	<br>
 	<br>
-	<audio id="audio" src='audio.wav'></audio>
-	<img id='audioimage' src='../images/X.png' >
-	<button id="audioBtn">Play</button>
-	<button id="updateTimings">Update</button>
+	<audio muted id="audio" src='../../inbox/audio.wav'></audio>
+
   <script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>   <!-- script from recorder.js -->
 
 
@@ -53,27 +59,27 @@ function fetchJSONFile(path, callback) {
         if (httpRequest.readyState === 4) {
             if (httpRequest.status === 200) {
                 var data = JSON.stringify(httpRequest.responseText);
-			
+
                 if (callback) callback(data);
             }
         }
     };
     httpRequest.open('GET', path,true);
-	
+
 	//clearing cache
 	httpRequest.setRequestHeader("Cache-Control", "no-cache");
 	httpRequest.setRequestHeader("Pragma", "no-cache");
 	httpRequest.setRequestHeader("If-Modified-Since", "Sat, 1 Jan 2000 00:00:00 GMT");
-	
-    httpRequest.send(); 
-} 
 
-      $("#updateTimings").click(function(){	  
-		fetchJSONFile('audio.txt', function(data){	
-		//stringifyJson(data);
+    httpRequest.send();
+}
+
+      $("#updateTimings").click(function(){
+		fetchJSONFile('../../outbox/audio.json', function(data){
+			stringifyJson(data);
 		});
-          
+
            });
-		
+
 
  </script>
