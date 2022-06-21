@@ -1,3 +1,5 @@
+<div id="top"></div>
+
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -41,9 +43,6 @@ This project was created with the aim of producing an application which can take
 The main focus of the project is ensuring that the lip animation doesn’t statically open and close with audio but instead are phonetically accurate. The lips should move in a way so that someone reading the lips would understand what was said.
 
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -52,7 +51,6 @@ The main focus of the project is ensuring that the lip animation doesn’t stati
 * [Bootstrap](https://getbootstrap.com)
 * [JQuery](https://jquery.com)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- USAGE EXAMPLES -->
@@ -66,15 +64,11 @@ To begin recording just press the record button and allow the app to use your mi
 
 <img src="imgs/TurboDemo.gif" alt="ProjectDemo">
 
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 
 <!-- LICENSE -->
 ## License
 
 Distributed under the MIT License.
-
-<p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- ACKNOWLEDGMENTS -->
